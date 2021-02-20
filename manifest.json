@@ -11,8 +11,8 @@
         "matches": [
             "Pearson",
             "*.mheducation.com/",
-            "*.webwork.*",
-            "*.mycourses.*",
+            "*.webwork.rit.*",
+            "*.mycourses.rit.*",
             "ExpertTa"
         ],
         "js": [
