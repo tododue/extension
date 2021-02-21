@@ -1,20 +1,30 @@
 /*
  * Page where use enters their login information
- * Gets stored locally using Chrome storage
- * maybe not the most secure method but hey, it's a hackathon
+ * Signs in and saves the token in chrome storage
  * 
  * Written by Christopher Grabda
  */
+let SIGNIN_URL = 'https://tododue.com/signin'
 
 $(function(){
     $('#enterLogin').click(function(){
-        let username = $('#username').val();
-        let password = $('#password').val();
+        let uname = $('#username').val();
+        let pword = $('#password').val();
 
-        chrome.storage.sync.set({'username': username});
-        chrome.storage.sync.set({'password': password});
+        $.ajax({
+            url: SIGNIN_URL,
+            type: 'POST',
+            data: {
+                username: uname,
+                password: pword
+            },
 
-        $('#username').val('');
-        $('#password').val('');
+            success: function(token) {
+                chrome.storage.sync.set({'token': token});
+            },
+            error: (e) => { // HANDLE ERRORS
+
+            }
+        });
     });
 });
