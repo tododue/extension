@@ -22,13 +22,6 @@ chrome.storage.sync.set({'token': ''})
  * Parses object and sets assignmentCount to number retrieved from server
  */
 function updateBadge() {
-    // Sets the Authorization header for ajax
-    $.ajaxSetup({
-        beforeSend: function(xhr) {
-            xhr.setRequestHeader('Authorization', "Bearer " + btoken);
-        }
-    });
-
     $.ajax({
         url: ASSIGNMENT_NUM_LINK,
         type: 'GET',
@@ -49,13 +42,23 @@ function updateBadge() {
     }
 }
 
-setTimeout(120000);
 
-// Initializes token, fetches value
-var btoken;
-chrome.storage.sync.get('token', function(data) {
-    btoken = data.token.token;
-    console.log(btoken);
-    // Every minute runs the updateBadge function
-    setInterval(updateBadge, 60000);
-});
+function main() {
+    // Initializes token, fetches value
+    var btoken;
+    chrome.storage.sync.get('token', function(tk) {
+        btoken = tk.token.token;
+
+        // Sets the Authorization header for ajax
+        $.ajaxSetup({
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader('Authorization', "Bearer " + btoken);
+            }
+        });
+
+        // Every minute runs the updateBadge function
+        setInterval(updateBadge(btoken), 60000);
+    });
+}
+
+setTimeout(main, 120000);
