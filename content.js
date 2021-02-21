@@ -14,7 +14,7 @@ let URL = window.location.href;
 let PAGE = $("html").html();
 
 // Link to send HTML data of page to
-let SERVERLINK = 'https://tododue.com/api/upload';
+let SERVERLINK = 'https://dev.tododue.com/api/upload';
 
 // Stores name of the site in the format the server uses
 let platform = '';

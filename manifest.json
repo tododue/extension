@@ -5,7 +5,7 @@
 
     "permissions": [
         "storage",
-        "*://tododue.com/*"
+        "*://dev.tododue.com/*"
     ],
 
     "content_scripts": [{
