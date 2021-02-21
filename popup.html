@@ -2,21 +2,29 @@
 <html>
     <style>
         body {
-            background-color: rgb(116, 43, 30);
+            background-color: #cecece;
+            min-width: 200px;
+            max-width: 740px;
+            min-height: 300px;
+            max-height: 550px;
         }
-        h2 {
-            color: rgb(245, 234, 220);
+        h1 {
+            color: #241155;
+            text-align: center;
         }
         h3 {
-            color: rgb(245, 234, 220);
+            color: #241155;
         }
-        input[type=submit] {
-            padding:5px 15px; 
-            background:rgb(0, 179, 24); 
-            border:0 none;
-            cursor:pointer;
-            -webkit-border-radius: 5px;
-            border-radius: 5px; 
+        table {
+            color: #241155;
+            margin-right: auto;
+            margin-left: auto;
+            font-size: 15px;
+            table-layout: auto;
+            width: 100%;
+        }
+        th {
+            text-align: center;
         }
     </style>
     <head>
@@ -25,9 +33,17 @@
         <script src="popup.js"></script>
     </head>
     <body>
-        <h2>To-Do / Due</h2>
-        <h3>Here's a static message</h3>
-        <h3>Test Extension</h3>
-        <input type="submit" id="toggle" value="Button">
+        <h1>To-Do / Due</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
     </body>
 </html>
