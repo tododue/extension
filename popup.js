@@ -51,8 +51,8 @@ function sendGet() {
                 $('tbody').append(row)
             }
         },
-        error: (e) => {     // HANDLE ERRORS
-            console.log("ERROR")
+        error: (e) => {
+            console.log(e);
         }
     });
 }

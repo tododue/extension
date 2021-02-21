@@ -29,8 +29,8 @@ $(function(){
                     chrome.tabs.remove(tab.id, function() { });
                 });
             },
-            error: (e) => { // HANDLE ERRORS
-
+            error: (e) => {
+                console.log(e);
             }
         });
     });
@@ -53,8 +53,8 @@ $(function() {
                 success: (e) => {
                     
                 },
-                error: (e) => {     // HANDLE ERRORS
-        
+                error: (e) => {
+                    console.log(e);
                 }
             });
         });

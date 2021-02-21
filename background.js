@@ -35,8 +35,8 @@ function updateBadge() {
         success: function(data) {
             assignmentCount = data.length();
         },
-        error: (e) => {     // HANDLE ERRORS
-
+        error: (e) => {
+            console.log(e);
         }
     });
 

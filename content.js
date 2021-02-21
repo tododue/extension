@@ -52,8 +52,8 @@ function sendPage() {
         success: (e) => {
 
         },
-        error: (e) => {     // HANDLE ERRORS
-
+        error: (e) => {
+            console.log(e);
         }
     });
 }
