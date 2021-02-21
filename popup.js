@@ -5,6 +5,17 @@
  * Written by Christopher Grabda and Patrick Mehlbaum
  */
 
+function getFormattedDate(date, justTime = false, withTime = false) {
+	if (withTime) {
+		return ("0" + (date.getMonth() + 1)).slice(-2) + '-' + ("0" + date.getDate()).slice(-2) + '-' + date.getFullYear() + ', ' + ("0" + date.getHours()).slice(-2) + ':' + ("0" + date.getMinutes()).slice(-2);
+	}
+	if (justTime) {
+		return ("0" + date.getHours()).slice(-2) + ':' + ("0" + date.getMinutes()).slice(-2);
+	} else {
+		return ("0" + (date.getMonth() + 1)).slice(-2) + '-' + ("0" + date.getDate()).slice(-2) + '-' + date.getFullYear();
+	}
+}
+
 // Link for the api to retrieve assignments array
 let ASSIGNMENTS_LINK = 'https://dev.tododue.com/api/assignmentsDueIn24h'
 
@@ -23,13 +34,10 @@ function sendGet() {
         success: function(data) {
             for (let assignment of data) {
                 let row = '<tr>';
-                row += '<td>';
-                row += assignment["class"]
-                row += '</td>';
-                row += '<td>';
-                row += assignment["name"]
-                row += '</td>';
-                row += '</tr>';
+                row += '<td>' + assignment["class"] + '</td>';
+                row += '<td>' + assignment["name"] + '</td>';
+                row += '<td>' + getFormattedDate(new Date(assignment["due"]), false, true) + '</td>';
+				row	+= '</tr>';			
                 $('tbody').append(row)
             }
         },

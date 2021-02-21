@@ -1,0 +1,117 @@
+:root {
+	--dark: #0f0f1f;
+	--light: #eeffff;
+	--muted: #cccccc;
+	--theme-1: #7c56dc;
+	--theme-2: #241155;
+	--theme-light: #a37fff;
+	--theme-dark: #4f2aa5;
+	--transition: all 250ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+	--transition-linear: all 150ms ease-in-out;
+}
+
+html, body {
+	background: #cecece;
+}
+
+h1, h2 {
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	margin: .5rem 0;
+	text-align: center;
+}
+
+.login-form {
+	width: 60%;
+	margin-left: 20%;
+	margin-right: 20%;
+	background: rgba(0,0,0,0.4);
+	border: 2px solid var(--theme-dark);
+	border-radius: 26px;
+	padding: 1rem 2rem 2rem 2rem;
+}
+
+.login-form label {
+		font-family: 'PT Serif';
+		padding-right: 1rem;
+}
+
+.login-form input {
+	padding: .5rem;
+}
+
+.login-form label[for="password"] {
+	margin-left: 3rem;
+}
+
+table {
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid var(--theme-dark);
+    border-collapse: collapse;
+    font-family: 'PT Serif', serif;
+    font-size: 1.4rem;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    -moz-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+table thead {
+    font-size: 18px;
+    text-align: left;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: var(--theme-light);
+    color: var(--dark);
+    margin: 0;
+}
+
+table tr, table.dataTable tbody tr {
+    border: 1px solid var(--theme-2);
+    -webkit-transition: background-color .28s cubic-bezier(.4,0,.2,1);
+    -moz-transition: background-color .28s cubic-bezier(.4,0,.2,1);
+    -ms-transition: background-color .28s cubic-bezier(.4,0,.2,1);
+    -o-transition: background-color .28s cubic-bezier(.4,0,.2,1);
+    transition: background-color .28s cubic-bezier(.4,0,.2,1);
+}
+
+table td, table th, table.dataTable tbody th, table.dataTable tbody td {
+    padding: 13px;
+    border: 1px solid var(--theme-2);
+    background-color: inherit;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+table tr.note td {
+    border-right: none;
+    border-top: none;
+}
+
+table th {
+    background-color: var(--theme-light);
+    border: 1px solid var(--theme-2);
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+table td .icon-btn {
+    text-align: center;
+}
+
+table tbody {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table tbody tr:nth-child(odd) {
+    background: #efefef;
+}
+
+table.dataTable tbody tr:nth-child(even), table tbody tr:nth-child(even) {
+    background: #ccc;
+}
+
+table tbody tr:hover, table.dataTable tbody tr:hover {
+    background-color: #aaa;
+}
