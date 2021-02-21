@@ -11,7 +11,7 @@
 let URL = window.location.href;
 
 // Stores full HTML data of the page
-let PAGE = $(document.html);
+let PAGE = $(document).html());
 
 // Link to send HTML data of page to
 let SERVERLINK = 'https://tododue.com/api/upload';
@@ -30,19 +30,19 @@ chrome.storage.sync.get('token', function(data) {
 });
 
 // Determines which site to use and what keywords to look for
-if (URL.has('mycourses')) {
+if (URL.includes('mycourses')) {
     loginPhrase = 'Login';
     platform = 'RIT_MYCOURSES';
 }
-else if (URL.has('webwork')) {
+else if (URL.includes('webwork')) {
     loginPhrase = 'Not logged in.';
     platform = 'RIT_WEBWORK';
 }
-else if (URL.has('mheducation.com')) {
+else if (URL.includes('mheducation.com')) {
     loginPhrase = 'Sign In';
     platform = 'MCGRAW_HILL';
 }
-else if (URL.has('theexpertta.com')) {
+else if (URL.includes('theexpertta.com')) {
     loginPhrase = 'Log In';
     platform = 'EXPERT_TA';
 }
@@ -69,6 +69,6 @@ function sendPage() {
 
 
 // If the page is not the login page, sends the HTML data to the server
-if (!page.includes(loginPhrase)) {
+if (!PAGE.includes(loginPhrase)) {
     sendPage();
 }
