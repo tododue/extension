@@ -11,7 +11,7 @@
 let URL = window.location.href;
 
 // Stores full HTML data of the page
-let PAGE = $(document).html());
+let PAGE = $("html").html();
 
 // Link to send HTML data of page to
 let SERVERLINK = 'https://tododue.com/api/upload';
