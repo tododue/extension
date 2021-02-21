@@ -4,7 +4,8 @@
  * 
  * Written by Christopher Grabda
  */
-let SIGNIN_URL = 'https://tododue.com/login'
+let SIGNIN_URL = 'https://tododue.com/login';
+let SIGNOUT_URL = 'https:/tododue.com/api/logout';
 
 $(function(){
     $('#enterLogin').click(function(){
@@ -31,6 +32,30 @@ $(function(){
             error: (e) => { // HANDLE ERRORS
 
             }
+        });
+    });
+});
+
+$(function() {
+    $('#logoutButton').click(function() {
+        chrome.storage.sync.get('token', function(token) {
+            $.ajaxSetup({
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader('Authorization', "Bearer " + btoken);
+                }
+            });
+
+            $.ajax({
+                url: SIGNOUT_URL,
+                type: 'GET',
+
+                success: (e) => {
+                    chrome.storage.sync.set({'token': ''});
+                },
+                error: (e) => {     // HANDLE ERRORS
+        
+                }
+            });
         });
     });
 });

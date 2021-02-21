@@ -65,7 +65,7 @@ function main() {
             });
 
             // Every minute runs the updateBadge function
-            setInterval(updateBadge(btoken), 60000);
+            setInterval(updateBadge(), 60000);
         }
     });
     
