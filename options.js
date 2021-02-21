@@ -39,6 +39,7 @@ $(function(){
 $(function() {
     $('#logoutButton').click(function() {
         chrome.storage.sync.get('token', function(token) {
+            let btoken = token.token.token;
             $.ajaxSetup({
                 beforeSend: function(xhr) {
                     xhr.setRequestHeader('Authorization', "Bearer " + btoken);
@@ -50,12 +51,13 @@ $(function() {
                 type: 'GET',
 
                 success: (e) => {
-                    chrome.storage.sync.set({'token': ''});
+                    
                 },
                 error: (e) => {     // HANDLE ERRORS
         
                 }
             });
         });
+        chrome.storage.sync.set({'token': ''});
     });
 });

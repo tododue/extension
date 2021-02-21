@@ -120,3 +120,8 @@ table.dataTable tbody tr:nth-child(even), table tbody tr:nth-child(even) {
 table tbody tr:hover, table.dataTable tbody tr:hover {
     background-color: #aaa;
 }
+
+.button {
+    padding: 10px;
+    border-radius: 10px;
+}
