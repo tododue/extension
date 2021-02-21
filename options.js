@@ -19,8 +19,10 @@ $(function(){
                 password: pword
             },
 
-            success: function(token) {
-                chrome.storage.sync.set({'token': token});
+            success: function(btoken) {
+                chrome.storage.sync.set({'token': btoken});
+                $('#username').val('');
+                $('#password').val('');
             },
             error: (e) => { // HANDLE ERRORS
 

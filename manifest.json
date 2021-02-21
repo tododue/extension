@@ -12,7 +12,7 @@
         "matches": [
             "*://*.mheducation.com/*",
             "*://*.webwork.rit.edu/*",
-            "*://*.mycourses.rit.edu/*",
+            "*://*.mycourses.rit.edu/d2l/le/calendar/*",
             "*://*.theexpertta.com/*"
         ],
         "js": [

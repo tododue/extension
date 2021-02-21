@@ -16,43 +16,35 @@ let PAGE = $("html").html();
 // Link to send HTML data of page to
 let SERVERLINK = 'https://tododue.com/api/upload';
 
-
-// Stores login phrase of the page
-let loginPhrase = '';
-
 // Stores name of the site in the format the server uses
 let platform = '';
 
-// Initializes token, fetches value
-let token;
-chrome.storage.sync.get('token', function(data) {
-    token = data;
-});
-
 // Determines which site to use and what keywords to look for
 if (URL.includes('mycourses')) {
-    loginPhrase = 'Login';
     platform = 'RIT_MYCOURSES';
 }
 else if (URL.includes('webwork')) {
-    loginPhrase = 'Not logged in.';
     platform = 'RIT_WEBWORK';
 }
 else if (URL.includes('mheducation.com')) {
-    loginPhrase = 'Sign In';
     platform = 'MCGRAW_HILL';
 }
 else if (URL.includes('theexpertta.com')) {
-    loginPhrase = 'Log In';
     platform = 'EXPERT_TA';
 }
 
 // Function to send the page information to the website to parse
 function sendPage() {
+    // Sets the Authorization header for ajax
+    $.ajaxSetup({
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('Authorization', "Bearer " + btoken);
+        }
+    });
+
     $.ajax({
         url: SERVERLINK,
         type: 'POST',
-        headers: {'Authorization': 'bearer ' + token},
         data: {
             page: PAGE,
             platform: platform
@@ -66,9 +58,10 @@ function sendPage() {
     });
 }
 
-
-
-// If the page is not the login page, sends the HTML data to the server
-if (!PAGE.includes(loginPhrase)) {
+// Initializes token, fetches value
+var btoken;
+chrome.storage.sync.get('token', function(data) {
+    btoken = data.token.token;
+    console.log(btoken);
     sendPage();
-}
+});

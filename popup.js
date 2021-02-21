@@ -8,31 +8,40 @@
 // Link for the api to retrieve assignments array
 let ASSIGNMENTS_LINK = 'https://tododue.com/api/assignmentsDueIn24h'
 
-// Initializes token, fetches value
-let token;
-chrome.storage.sync.get('token', function(data) {
-    token = data;
-});
-
- $.ajax({
-    url: ASSIGNMENTS_LINK,
-    type: 'GET',
-    headers: {'Authorization': 'bearer ' + token},
-
-    success: function(data) {
-        for (let assignment of data) {
-            let row = '<tr>';
-            row += '<td>';
-            row += assignment["class"]
-            row += '</td>';
-            row += '<td>';
-            row += assignment["name"]
-            row += '</td>';
-            row += '</tr>';
-            $('tbody').append(row)
+function sendGet() {
+    // Sets the Authorization header for ajax
+    $.ajaxSetup({
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('Authorization', "Bearer " + btoken);
         }
-    },
-    error: (e) => {     // HANDLE ERRORS
+    });
 
-    }
+    $.ajax({
+        url: ASSIGNMENTS_LINK,
+        type: 'GET',
+
+        success: function(data) {
+            for (let assignment of data) {
+                let row = '<tr>';
+                row += '<td>';
+                row += assignment["class"]
+                row += '</td>';
+                row += '<td>';
+                row += assignment["name"]
+                row += '</td>';
+                row += '</tr>';
+                $('tbody').append(row)
+            }
+        },
+        error: (e) => {     // HANDLE ERRORS
+            console.log("ERROR")
+        }
+    });
+}
+
+// Initializes token, fetches value
+let btoken;
+chrome.storage.sync.get('token', function(data) {
+    btoken = data.token.token;
+    sendGet();
 });
