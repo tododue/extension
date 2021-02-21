@@ -50,21 +50,25 @@ function updateBadge() {
 
 
 function main() {
-    // Initializes token, fetches value
-    var btoken;
+
     chrome.storage.sync.get('token', function(tk) {
-        btoken = tk.token.token;
+        if (tk.token != "") {
+            // Initializes token, fetches value
+            var btoken;
+            btoken = tk.token.token;
 
-        // Sets the Authorization header for ajax
-        $.ajaxSetup({
-            beforeSend: function(xhr) {
-                xhr.setRequestHeader('Authorization', "Bearer " + btoken);
-            }
-        });
+            // Sets the Authorization header for ajax
+            $.ajaxSetup({
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader('Authorization', "Bearer " + btoken);
+                }
+            });
 
-        // Every minute runs the updateBadge function
-        setInterval(updateBadge(btoken), 60000);
+            // Every minute runs the updateBadge function
+            setInterval(updateBadge(btoken), 60000);
+        }
     });
+    
 }
 
 setTimeout(main, 120000);
