@@ -9,10 +9,10 @@
 
     "content_scripts": [{
         "matches": [
-            "*.mheducation.com/*",
-            "*.webwork.rit.*",
-            "*.mycourses.rit.*",
-            "*.theexpertta.com/*"
+            "*://*.mheducation.com/*",
+            "*://*.webwork.rit.edu/*",
+            "*://*.mycourses.rit.edu/*",
+            "*://*.theexpertta.com/*"
         ],
         "js": [
             "content.js"
