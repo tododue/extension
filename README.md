@@ -2,7 +2,7 @@
 	<img src="./LogoExtensionReadMe.png" alt="To Do, Due"/>
 </div>
 
-# server
+# Extension
 The To-Do Due Extension - Website hosted at [tododue.com](https://tododue.com)
 
 ---
