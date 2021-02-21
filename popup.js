@@ -5,6 +5,16 @@
  * Written by Christopher Grabda and Patrick Mehlbaum
  */
 
+//Checks if user is logged in
+chrome.storage.sync.get('token', function(tk) {
+    if (tk.token != "") {
+        $('#temporary').hide();
+    } else {
+        $('#temporary').show();
+    }
+});
+
+
 function getFormattedDate(date, justTime = false, withTime = false) {
 	if (withTime) {
 		return ("0" + (date.getMonth() + 1)).slice(-2) + '-' + ("0" + date.getDate()).slice(-2) + '-' + date.getFullYear() + ', ' + ("0" + date.getHours()).slice(-2) + ':' + ("0" + date.getMinutes()).slice(-2);
