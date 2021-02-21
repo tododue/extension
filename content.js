@@ -23,6 +23,12 @@ let loginPhrase = '';
 // Stores name of the site in the format the server uses
 let platform = '';
 
+// Initializes token, fetches value
+let token;
+chrome.storage.sync.get('token', function(data) {
+    token = data;
+});
+
 // Determines which site to use and what keywords to look for
 if (URL.has('mycourses')) {
     loginPhrase = 'Login';
@@ -46,6 +52,7 @@ function sendPage() {
     $.ajax({
         url: SERVERLINK,
         type: 'POST',
+        headers: {'Authorization': 'bearer ' + token},
         data: {
             page: PAGE,
             platform: platform

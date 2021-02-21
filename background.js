@@ -14,6 +14,9 @@ let assignmentCount = 0;
 // Sets background color of badge
 chrome.browserAction.setBadgeBackgroundColor({ color: [62, 62, 128, 255] });
 
+// Initializes token variable
+chrome.storage.sync.set({'token': ''})
+
 /*
  * Gets assignment number from server as a json object
  * Parses object and sets assignmentCount to number retrieved from server

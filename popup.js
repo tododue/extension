@@ -8,9 +8,16 @@
 // Link for the api to retrieve assignments array
 let ASSIGNMENTS_LINK = 'https://tododue.com/api/assignmentsDueIn24h'
 
+// Initializes token, fetches value
+let token;
+chrome.storage.sync.get('token', function(data) {
+    token = data;
+});
+
  $.ajax({
     url: ASSIGNMENTS_LINK,
     type: 'GET',
+    headers: {'Authorization': 'bearer ' + token},
 
     success: function(data) {
         for (let assignment of data) {
