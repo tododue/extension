@@ -23,6 +23,10 @@ $(function(){
                 chrome.storage.sync.set({'token': btoken});
                 $('#username').val('');
                 $('#password').val('');
+
+                chrome.tabs.getCurrent(function(tab) {
+                    chrome.tabs.remove(tab.id, function() { });
+                });
             },
             error: (e) => { // HANDLE ERRORS
 
