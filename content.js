@@ -8,7 +8,7 @@
 
 
 // URL of the page
-let URL = $.get(url);
+let URL = window.location.href;
 
 // Stores full HTML data of the page
 let PAGE = $(document.html);
