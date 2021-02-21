@@ -9,11 +9,10 @@
 
     "content_scripts": [{
         "matches": [
-            "Pearson",
-            "*.mheducation.com/",
+            "*.mheducation.com/*",
             "*.webwork.rit.*",
             "*.mycourses.rit.*",
-            "ExpertTa"
+            "*.theexpertta.com/*"
         ],
         "js": [
             "content.js"
