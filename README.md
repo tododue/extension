@@ -43,7 +43,8 @@ This extension scrapes the data of rit.mycourses, rit.webworks, mcgrawhill.com, 
 2. Go to 'chrome://extensions' or equivalent
 3. Turn on developer mode for extensions
 4. Click 'Load Unpacked' and select the folder for the extension
-5. Sit back and relax!
+5. Right click on the extension icon in your bar, select 'Extension options', and enter your login information into the popup window
+6. Sit back and relax!
 
 ## Team
 
