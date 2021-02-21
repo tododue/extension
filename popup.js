@@ -17,7 +17,7 @@ function getFormattedDate(date, justTime = false, withTime = false) {
 }
 
 // Link for the api to retrieve assignments array
-let ASSIGNMENTS_LINK = 'https://dev.tododue.com/api/assignmentsDueIn24h'
+let ASSIGNMENTS_LINK = 'https://tododue.com/api/assignmentsDueIn24h'
 
 function sendGet() {
     // Sets the Authorization header for ajax

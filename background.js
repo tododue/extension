@@ -6,7 +6,7 @@
  */
 
 // Link to get assignment number data from
-let ASSIGNMENT_NUM_LINK = 'https://dev.tododue.com/api/assignmentsDueIn24h';
+let ASSIGNMENT_NUM_LINK = 'https://tododue.com/api/assignmentsDueIn24h';
 
 // Stores number of assignments to do for the day
 let assignmentCount = 0;

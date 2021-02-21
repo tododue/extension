@@ -4,7 +4,7 @@
  * 
  * Written by Christopher Grabda
  */
-let SIGNIN_URL = 'https://dev.tododue.com/login'
+let SIGNIN_URL = 'https://tododue.com/login'
 
 $(function(){
     $('#enterLogin').click(function(){
