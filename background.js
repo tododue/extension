@@ -49,7 +49,7 @@ function updateBadge() {
     }
 }
 
-
+setTimeout(120000);
 
 // Initializes token, fetches value
 var btoken;
