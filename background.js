@@ -22,10 +22,9 @@ function updateBadge() {
     $.ajax({
         url: ASSIGNMENT_NUM_LINK,
         type: 'GET',
-        dataType: JSON,
 
         success: function(data) {
-            assignmentCount = JSON.parse(data);
+            assignmentCount = data.length();
         },
         error: (e) => {     // HANDLE ERRORS
 
